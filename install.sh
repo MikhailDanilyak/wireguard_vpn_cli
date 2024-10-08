@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Обновляем пакеты на сервере
+# Update server packages
 sudo apt update
 
-# Устанавливаем сам клиент wireguard
+# Install wireguard package
 sudo apt install wireguard
 
-# Переходим в конфигурационную папку для wireguard
+# Change directory to wireguard config folder
 cd /etc/wireguard/
 
-# Создаем файлы с парой ключей для сервера wireguard
+# Create keypair files for wireguard server
 if [ ! -f /etc/wireguard/server_privatekey ] && [ ! -f /etc/wireguard/server_publickey ]; then
     echo "No server config key files find. Let's create new ones!"
     wg genkey | tee /etc/wireguard/server_privatekey | wg pubkey | tee /etc/wireguard/server_publickey
@@ -20,3 +20,22 @@ elif [ ! -f /etc/wireguard/server_publickey ]; then
 else
     echo "Server config key-pair is set."
 fi
+
+# Install python
+sudo apt install python3
+
+# Install poetry
+mkdir -p ~/scripts
+curl -sSL https://install.python-poetry.org > ~/scripts/install_poetry.py
+source ~/.bashrc
+python3 ~/scripts/install_poetry.py
+
+# Poetry path '~/.local/share'
+# Append poetry path to .bashrc
+LINE='PATH="$HOME/.local/share/pypoetry/venv/bin:$PATH"'
+FILE=$HOME/.bashrc
+grep -qF "$LINE" "$FILE"  || echo "$LINE" | sudo tee --append "$FILE"
+source ~/.bashrc
+
+# Set up poetry python enviroment to be in .venv folder near pyproject.toml
+poetry config virtualenvs.in-project true
