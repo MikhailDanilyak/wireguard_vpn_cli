@@ -39,3 +39,8 @@ source ~/.bashrc
 
 # Set up poetry python enviroment to be in .venv folder near pyproject.toml
 poetry config virtualenvs.in-project true
+
+# Set up IP forwarding
+sudo echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+
+sysctl -p

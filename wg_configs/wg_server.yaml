@@ -1,0 +1,5 @@
+address: 10.0.0.1/24
+interface: eth0
+listen_port: '51820'
+private_key_path: /etc/wireguard/server_privatekey
+user_list: !!python/tuple []

@@ -12,3 +12,13 @@
 ```sh
 rm -rfv `poetry env info -p`
 ```
+
+Под капотом генерации ключа работает:
+```sh
+openssl rand -base64 32
+```
+
+Запуск тестов:
+```sh
+poetry run pytest tests/test_wg_server.py -vv
+```
