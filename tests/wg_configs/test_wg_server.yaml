@@ -1,5 +1,7 @@
-address: 10.1.1.1/24
+external_address: 84.252.134.48
 interface: eth0
+internal_address: 10.1.1.1/24
 listen_port: '51830'
-private_key_path: /etc/wireguard/test_private_key
+private_key_path: /home/danmike_vpn/wireguard/wireguard_vpn_cli/tests/etc/wireguard/test_privatekey
+public_key_path: /home/danmike_vpn/wireguard/wireguard_vpn_cli/tests/etc/wireguard/test_publickey
 user_list: !!python/tuple []

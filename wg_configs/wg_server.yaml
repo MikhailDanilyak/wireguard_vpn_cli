@@ -1,5 +1,7 @@
+external_address: 51.250.33.188
 address: 10.0.0.1/24
 interface: eth0
 listen_port: '51820'
 private_key_path: /etc/wireguard/server_privatekey
+public_key_path: /etc/wireguard/server_publickey
 user_list: !!python/tuple []

@@ -1,0 +1,4 @@
+client_name: test_user
+internal_address: 10.1.1.2/24
+private_key_path: /home/danmike_vpn/wireguard/wireguard_vpn_cli/tests/etc/wireguard/test_user_privatekey
+public_key_path: /home/danmike_vpn/wireguard/wireguard_vpn_cli/tests/etc/wireguard/test_user_publickey
